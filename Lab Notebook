@@ -217,7 +217,7 @@ Bases preceding removed adapters:
   G: 33.9%
   T: 12.2%
   none/other: 1.4%
-
+output data path: /home/iquesada/bgmp/bioinfo/Bi623/QAA/cutadapt_data
 
 Use Trimmomatic to quality trim your reads. Specify the following, in this order:
   LEADING: quality of 3
@@ -238,10 +238,45 @@ o mySampleFiltered_1U.fq.gz - for unpaired forward reads
 o mySampleFiltered_2P.fq.gz - for paired reverse reads
 o mySampleFiltered_2U.fq.gz - for unpaired reverse reads
 
+
+
 slurm-56074.out
 trimmomatic.sh
+output data path: /home/iquesada/bgmp/bioinfo/Bi623/QAA/trimmed_data
+
 
 <PLOT THE TRIMMED READ LENGTH DISTRIBUTIONS>
+
+
+09/12/2023
+Part 3 – Alignment and strand-specificity
+
+In your QAA environment, use conda to install:
+	star
+		$ conda install star -c bioconda
+		$ STAR --version                                                                               
+			2.7.10b
+		$ conda install samtools -c bioconda
+		$ samtools --version
+			samtools 1.17
+	numpy
+		$ conda install numpy
+		$ pip show numpy
+			Name: numpy
+			Version: 1.25.2
+
+	matplotlib
+		$ conda install matplotlib
+		$ pip show matplotlib                                                                          
+			Name: matplotlib                                                                                                         
+			Version: 3.7.2                    
+	
+	htseq
+		$ conda install -c bioconda htseq
+		$ pip show htseq
+			Name: HTSeq
+			Version: 2.0.3
+
 
 
 How to secure copy files from Talapas: 
