@@ -72,7 +72,49 @@ Run your quality score plotting script from your Demultiplexing assignment in Bi
 /home/iquesada/bgmp/bioinfo/Bi622/Demultiplex/Assignment-the-first/part1.sh
 part1.sh
 jobID: 51777
-*************<INSERT RUN TIME INFO HERE>*************
+
+Command being timed: "./part1.py -f /projects/bgmp/shared/2017_sequencing/demultiplexed/6_2D_mbnl_S5_L008_R1_001.fastq.gz -l 101 -o 6_2D_mbnl_S5_L008_R1_001_qscore_distribution"
+	User time (seconds): 193.49
+	System time (seconds): 1.23
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:14.11
+	.
+	.
+	.
+	Page size (bytes): 4096
+	Exit status: 0
+Command being timed: "./part1.py -f /projects/bgmp/shared/2017_sequencing/demultiplexed/6_2D_mbnl_S5_L008_R2_001.fastq.gz -l 101 -o 6_2D_mbnl_S5_L008_R2_001_qscore_distribution"
+	User time (seconds): 205.36
+	System time (seconds): 1.22
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:26.06
+	.
+	.
+	.
+	Page size (bytes): 4096
+	Exit status: 0
+Command being timed: "./part1.py -f /projects/bgmp/shared/2017_sequencing/demultiplexed/16_3D_mbnl_S12_L008_R1_001.fastq.gz -l 101 -o 16_3D_mbnl_S12_L008_R1_001_qscore_distribution"
+	User time (seconds): 146.18
+	System time (seconds): 1.19
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.61
+	.
+	.
+	.
+	Page size (bytes): 4096
+	Exit status: 0
+Command being timed: "./part1.py -f /projects/bgmp/shared/2017_sequencing/demultiplexed/16_3D_mbnl_S12_L008_R2_001.fastq.gz -l 101 -o 16_3D_mbnl_S12_L008_R2_001_qscore_distribution"
+	User time (seconds): 145.73
+	System time (seconds): 1.09
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.19
+	.
+	.
+	.
+	Page size (bytes): 4096
+	Exit status: 0
+
+
 
 Part 2 – Adaptor trimming comparison
 Creating Conda environments in Talapas: install cutadapt and Trimmomatic
@@ -245,8 +287,16 @@ trimmomatic.sh
 output data path: /home/iquesada/bgmp/bioinfo/Bi623/QAA/trimmed_data
 
 
-<PLOT THE TRIMMED READ LENGTH DISTRIBUTIONS>
+Plot Read Length Distribution: 
+script: read_length_distribution_plot.py
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/trimmed_data/16_3D_mbnl_S12_L008_R1_001_trimmed_p.fastq.gz
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/trimmed_data/16_3D_mbnl_S12_L008_R2_001_trimmed_p.fastq.gz
+output: /home/iquesada/bgmp/bioinfo/Bi623/QAA/16_3D_mbnl_S12.png
 
+
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/trimmed_data/6_2D_mbnl_S5_L008_R1_trimmed_p.fastq.gz
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/trimmed_data/6_2D_mbnl_S5_L008_R2_trimmed_p.fastq.gz
+output: /home/iquesada/bgmp/bioinfo/Bi623/QAA/6_2D_mbnl_S5.png
 
 09/12/2023
 Part 3 – Alignment and strand-specificity
