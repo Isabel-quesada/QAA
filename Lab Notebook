@@ -274,14 +274,6 @@ scanning at the 5‟ end and clips the read once the average quality within the 
 falls below a threshold.
 MINLEN: Drop the read if it is below a specified length
 
-output files: 
- mySampleFiltered_1P.fq.gz - for paired forward reads
-o mySampleFiltered_1U.fq.gz - for unpaired forward reads
-o mySampleFiltered_2P.fq.gz - for paired reverse reads
-o mySampleFiltered_2U.fq.gz - for unpaired reverse reads
-
-
-
 slurm-56074.out
 trimmomatic.sh
 output data path: /home/iquesada/bgmp/bioinfo/Bi623/QAA/trimmed_data
@@ -327,10 +319,45 @@ In your QAA environment, use conda to install:
 			Name: HTSeq
 			Version: 2.0.3
 
+Mouse genome files: /home/iquesada/bgmp/bioinfo/Bi623/QAA/mouse_reference
+
+scripts used: 
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/star_index.sh
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/star_map.sh
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/htseq.sh 
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/count.py
+
+Using count.py (script from PS8) to get the number of mapped and unmapped
+reads from each of the 2 sam files: 
+
+16_3D_mbnl_S12_L008Aligned.out.sam
+	$ ./count.py -f1 16_3D_mbnl_S12_L008Aligned.out.sam 
+	Number of mapped reads: 15662605
+	Number of unmapped reads: 365711
+
+6_2D_mbnl_S5_L008Aligned.out.sam
+	$ ./count.py -f1 6_2D_mbnl_S5_L008Aligned.out.sam 
+	Number of mapped reads: 20186295
+	Number of unmapped reads: 736311
+
+Count reads that map to features using htseq-count: 
+You should run htseq-count twice: once with --stranded=yes 
+and again with --stranded=reverse. 
+
+output files from htseq.sh: 
+/home/iquesada/bgmp/bioinfo/Bi623/QAA
+
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/16_3D_mbnl_S12_L008_fw_genecount.txt
+
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/16_3D_mbnl_S12_L008_rv_genecount.txt
+
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/6_2D_mbnl_S5_L008_fw_genecount.txt
+
+/home/iquesada/bgmp/bioinfo/Bi623/QAA/6_2D_mbnl_S5_L008_rv_genecount.txt
 
 
 How to secure copy files from Talapas: 
-scp iquesada@login.talapas.uoregon.edu:absolute path to file in Talapas .h
+scp iquesada@login.talapas.uoregon.edu:absolute path to file in Talapas .
 srun --account=bgmp --partition=compute --mem=16G --time=3:00:00 --pty bash
 
 
